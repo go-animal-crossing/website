@@ -1,0 +1,11 @@
+{{define "critter_museumphrase"}}
+
+{{ if .Data "phrases.museum" }}
+<h3><span class='slab'>Blathers says...</span></h3>
+<blockquote class="museum-phrase grid">
+    <img class="grid__item" src="/assets/ui/npc-images/blathers.png" />
+    <p class='grid__item'>{{ .Data "phrases.museum" }}</p>
+</blockquote>
+{{end}}
+
+{{end}}

@@ -1,0 +1,12 @@
+{{define "data_southern"}}
+
+{{ $always := .Data "availability.months.always" }}
+
+{{ if eq $always false }}
+<li class="data__row">
+    <strong class="data__row__key align__left  key key__time"><em>Southern</em><i> Hemisphere</i>:</strong>
+    <span class="data__row__value align__right">{{ .Data "availability.months.southern.text" }}</span>
+</li>
+{{end}}
+
+{{end}}

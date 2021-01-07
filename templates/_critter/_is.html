@@ -1,0 +1,43 @@
+{{define "critter_is"}}
+
+{{ $northNew := .Data "is.northern.new" }}
+{{ $northLeaving := .Data "is.northern.leaving" }}
+{{ $southNew := .Data "is.southern.new" }}
+{{ $southLeaving := .Data "is.southern.leaving" }}
+
+{{if eq $northNew true }}
+<span class='is-new is-n is' title="New this month for the northern hemisphere">
+    <img loading="lazy" src="/assets/ui/icons/star.svg" alt="New this month for the northern hemisphere" />
+</span>
+<p class='is-new is-n is'>New for the Northen Hemisphere</p>
+{{end}}
+
+{{if eq $southNew true }}
+<span class='is-new is-s is' title="New this month for the southern hemisphere">
+    <img loading="lazy" src="/assets/ui/icons/star.svg" alt="New this month for the southern hemisphere" />
+</span>
+<p class='is-new is-s is'>New for the Southern Hemisphere</p>
+{{end}}
+
+
+{{if eq $northNew false }}
+    {{if eq $northLeaving true }}
+    <span class='is-leaving is-n is' title="Last month for the northern hemisphere">
+        <img loading="lazy" src="/assets/ui/icons/alert-triangle.svg" alt="Last month for the northern hemisphere" />
+    </span>
+    <p class='is-leaving is-n is'>Last month for the Northen Hemisphere</p>
+    {{end}}
+{{end}}
+
+{{if eq $southNew false }}
+    {{if eq $southLeaving true }}
+    <span class='is-leaving is-s is' title="Last month for the southern hemisphere">
+        <img loading="lazy" src="/assets/ui/icons/alert-triangle.svg" alt="Last month for the southern hemisphere" />
+    </span>
+    <p class='is-leaving is-s is'>Last month for the Southern Hemisphere</p>
+    {{end}}
+{{end}}
+
+
+
+{{end}}

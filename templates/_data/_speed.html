@@ -1,0 +1,8 @@
+{{define "data_speed"}}
+{{ if .Data "has.speed" }}
+<li class="data__row">
+    <strong class="data__row__key align__left  key key__speed">Speed:</strong>
+    <span class="data__row__value align__right">{{ .Data "attributes.speed" }}</span>
+</li>
+{{end}}
+{{end}}

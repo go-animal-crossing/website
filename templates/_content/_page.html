@@ -1,0 +1,31 @@
+{{define "content_page"}}
+
+{{ $item := .Sub "items.0" }}
+<section class="page item" data-anch-item-id='{{ .Data "id" }}'>
+    <div class='page__text rounded'>
+        <h1>{{ .Data "title" }}</h1>
+        {{- template "critter_is" $item -}} 
+        <p class="last">Found in <a href='/{{ .Data "type.slug" }}/'>{{ .Data "type.title" }}</a></p>
+        <div class='grid page__grid'>
+
+            {{- template "critter_mainimage" $item -}}
+            <section class="page__grid__contents grid__item">                         
+                <h2><span class='slab'>Profile</span></h2>
+                {{- template "critter_availability" $item -}}
+                <ul class="data rounded">
+                    {{- template "data_rarity" $item -}}
+                    {{- template "data_prices" $item -}}
+                    {{- template "data_shadow" $item -}}
+                    {{- template "data_speed" $item -}}
+                </ul>           
+            </section>      
+        </div>
+
+        <section class='rounded phrases'>
+            {{- template "critter_museumphrase" $item -}}
+            {{- template "critter_catchphrase" $item -}}
+        </section>
+    </div>    
+    {{- template "critter_jsdata" $item -}}
+</section>
+{{end}}

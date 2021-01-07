@@ -1,0 +1,14 @@
+{{define "data_time"}}
+
+<li class="data__row">
+    <strong class="data__row__key align__left  key key__time"><em>Time</em><i> of Day</i>:</strong>
+    {{if .Data "availability.times.always" }}
+    <span class="data__row__value align__right">All Day</span>
+    {{else}}
+    <span class="data__row__value align__right">{{ .Data "availability.times.text" }}</span>
+    {{end}}
+    
+</li>
+
+
+{{end}}

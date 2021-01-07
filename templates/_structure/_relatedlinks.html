@@ -1,0 +1,17 @@
+{{define "structure_relatedlinks"}}
+
+
+
+{{ $related := .Data "meta.links.related"}}
+{{ $related = $related | htmlUnescape }}
+
+<section class='links' data-uri='{{ .Data  "url" }}' >  
+
+    {{ if $related }}    
+    <p class='small'>{{ $related }}</p>
+    {{end}}
+
+    <p class='small'><a href="#month">View a monthly breakdown</a> of Animal Crossing New Horizon data.</p>
+</section>
+
+{{end}}

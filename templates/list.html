@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {{- template "structure_head" -}} 
+        <title>{{ .Data "title" }} | Critters of Animal Crossing: New Horizons</title>
+        
+    </head>
+    
+    <body class='type-{{ .Data "type.slug" }}'>     
+    {{- template "structure_header" -}} 
+
+    {{- template "content_listing" . -}} 
+    
+    {{- template "structure_footer" -}} 
+
+    </body>
+</html>

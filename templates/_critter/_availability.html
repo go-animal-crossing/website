@@ -1,0 +1,17 @@
+{{ define "critter_availability" }}
+
+{{ $available := .Data "availability" }}
+
+{{ if $available }}
+    <h2><span class='slab'>Where & When</span></h2>
+    <ul class="data rounded">
+    {{- template "data_location" . -}}        
+    {{- template "data_northern" . -}}       
+    {{- template "data_southern" . -}}
+    {{- template "data_time" . -}}       
+    </ul>       
+
+{{end}}
+
+
+{{ end }}

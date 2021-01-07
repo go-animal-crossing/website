@@ -1,0 +1,9 @@
+{{ define "data_shadow" }}
+
+{{ if .Data "has.shadow" }}
+<li class="data__row">
+    <strong class="data__row__key align__left  key key__shadow">Shadow:</strong>
+    <span class="data__row__value align__right">{{ .Data "attributes.shadow" }}</span>
+</li>
+{{ end }}
+{{ end }}

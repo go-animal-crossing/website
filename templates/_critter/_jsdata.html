@@ -1,0 +1,23 @@
+{{define "critter_jsdata"}}
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "{{ .Data "title" }}",
+        "image": "{{ .Data "images.main" }}",
+        "description": "{{ .Data "phrases.museum" }}",
+        "sku": "ACNH-{{ .Data "type.slug" }}-{{ .Data "id" }}",
+        "mpn": "ACNH-{{ .Data "type.slug" }}-{{ .Data "id" }}",
+        "brand": {
+            "@type": "Brand",
+            "name": "ACNH {{ .Data "type.title" }}"
+        },
+        "category" : "{{ .Data "type.title" }}",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "1"
+        }
+    }
+    </script>
+    {{end}}

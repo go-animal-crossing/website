@@ -1,0 +1,30 @@
+{{define "datatable_header"}}
+<tr>
+    <th class='sorttable_nosort'></th>
+    <th>Name<span id="sorttable_sortfwdind">&nbsp;▾</span></th>    
+    {{ if .Data "has.location" }}
+    <th class='can-hide'>Location</th>        
+    {{end}}
+    
+    {{ if .Data "has.rarity" }}
+    <th class='can-hide'>Rarity</th>        
+    {{end}} 
+
+    {{ if .Data "has.availabilty" }}
+        <th class='sorttable_nosort'>Availability</th>    
+    {{end}}
+
+    {{ if .Data "has.shadow" }}
+    <td class='can-hide'>Shadow</td>
+    {{end}}
+
+    {{ if .Data "has.speed" }}
+    <td class='can-hide'>Speed</td>
+    {{end}}
+
+    {{ if .Data "has.price" }}
+    <td class='price can-hide'>Price</td>
+    {{end}}
+</tr>
+
+{{end}}

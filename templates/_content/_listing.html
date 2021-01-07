@@ -1,0 +1,39 @@
+{{define "content_listing"}}
+
+
+{{ $items := .Sub "items" }}
+{{ $o := . }}
+
+<section class="page list" data-anch-type='{{ .Data "type.slug" }}'>
+    <div class='page__text rounded'>
+    {{ if $items }}
+        <h1>{{ .Data "title" }}</h1>        
+        
+        {{- template "nav_inner" . }}
+        {{- template "structure_relatedlinks" . }}
+        {{- template "structure_hemisphere" . }}
+
+        <table class='data data-table rounded sortable'>
+            <thead>
+                {{- template "datatable_header" -}}
+            </thead>
+            <tbody>
+                {{range $i, $e := .Data "items" }}
+                    {{ $key := sprintf "items.%d" $i }}
+                    {{ $item := $o.Sub $key }}
+                    {{- template "datatable_row" $item -}}
+
+                {{end}}
+            </tbody>
+        </table>
+
+        
+        {{- template "nav_months" . }}
+
+    {{ else }}
+        {{- template "structure_nodata" -}}
+    {{ end}}
+    </div>
+</section>  
+
+{{end}}

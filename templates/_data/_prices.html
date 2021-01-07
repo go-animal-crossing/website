@@ -1,0 +1,22 @@
+{{ define "data_prices" }}
+
+<li class="data__row">
+    <strong class="data__row__key align__left  key key__bells">Price:</strong>
+    <span class="data__row__value align__right">{{ .Data "prices.store" }}</span>
+</li>
+
+{{ if .Data "prices.flick" }}
+<li class="data__row">
+    <strong class="data__row__key align__left  key key__bells">Price from Flick:</strong>
+    <span class="data__row__value align__right">{{ .Data "prices.flick" }}</span>
+</li>
+{{ end }}
+
+{{ if .Data "prices.cj" }}
+<li class="data__row">
+    <strong class="data__row__key align__left  key key__bells">Price from CJ:</strong>
+    <span class="data__row__value align__right">{{ .Data "prices.cj" }}</span>
+</li>
+{{ end }}
+
+{{ end }}

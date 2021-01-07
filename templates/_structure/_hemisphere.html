@@ -1,0 +1,11 @@
+{{define "structure_hemisphere"}}
+{{ $hemi := .Data "meta.hemisphere" }}
+<section class='category'>
+    {{ if  $hemi }}
+        <p>The listing below is for the <strong>{{ $hemi }}</strong> hemisphere.</p>
+    {{ else }}
+        <p>The listing below is for <strong>both</strong> hemispheres.</p>
+    {{ end}}
+    </section>
+
+{{end}}
