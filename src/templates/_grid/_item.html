@@ -1,0 +1,84 @@
+{{define "grid_item"}}
+
+{{- $newN := .Data "is.northern.new" -}}
+{{- $newS := .Data "is.southern.new" -}}
+{{- $new := "0" -}}
+{{- if or $newN $newS -}}
+{{- $new = "1" -}}
+{{- end -}}
+{{- $isNewN := "0" -}}
+{{- if $newN -}}
+{{- $isNewN = "1" -}}
+{{- end -}}
+{{- $isNewS := "0" -}}
+{{- if $newS -}}
+{{- $isNewS = "1" -}}
+{{- end -}}
+{{- $leavingN := .Data "is.northern.leaving" -}}
+{{- $leavingS := .Data "is.southern.leaving" -}}
+{{- $leaving := "0" -}}
+{{- if or $leavingN $leavingS -}}
+{{- $leaving = "1" -}}
+{{- end -}}
+{{- $isLeavingN := "0" -}}
+{{- if $leavingN -}}
+{{- $isLeavingN = "1" -}}
+{{- end -}}
+{{- $isLeavingS := "0" -}}
+{{- if $leavingS -}}
+{{- $isLeavingS = "1" -}}
+{{- end -}}
+{{- $availN := .Data "is.northern.available" -}}
+{{- $availS := .Data "is.southern.available" -}}
+{{- $avail := "0" -}}
+{{- if or $availN $availS -}}
+{{- $avail = "1" -}}
+{{- end -}}
+{{- $isAvailN := "" -}}
+{{- if $availN -}}
+{{- $isAvailN = "1" -}}
+{{- end -}}
+{{- $isAvailS := "" -}}
+{{- if $availS -}}
+{{- $isAvailS = "1" -}}
+{{- end -}}
+{{- $times := "" -}}
+{{- $hours := "" -}}
+{{- range $t := .Data "availability.times.array" -}}
+    {{-  $times = (printf "%s%s%v" $times " t-" $t)  -}}
+    {{- $hours = (printf "%s%v," $hours $t) -}}
+{{- end -}}
+{{- $slug := .Data "type.slug"  -}}
+
+<a  href='{{ .Data "url" }}' 
+    class='
+    grid__item filter__item critter-tile
+    {{$times}}
+    hemi-northern-{{$isAvailN}}
+    hemi-southern-{{$isAvailS}}
+    is-new-{{$new}}
+    is-new-northern-{{$isNewN}}
+    is-new-southern-{{$isNewS}}
+    is-leaving-{{$leaving}}
+    is-leaving-northern-{{$isLeavingN}}
+    is-leaving-southern-{{$isLeavingS}}
+    type-{{$slug}}
+    '
+    data-hours="{{$hours}}"
+    data-northern="{{if $availN}}1{{else}}0{{end}}"
+    data-southern="{{if $availS}}1{{else}}0{{end}}"
+    data-is-new-northern="{{if $newN}}1{{else}}0{{end}}"
+    data-is-new-southern="{{if $newS}}1{{else}}0{{end}}"
+    data-is-leaving-northern="{{if $leavingN}}1{{else}}0{{end}}"
+    data-is-leaving-southern="{{if $leavingS}}1{{else}}0{{end}}"
+    data-type='{{$slug}}'
+    data-id='{{ .Data "id" }}'
+    >
+    <img src='{{ .Data "images.thumb"}}' 
+        alt='Image of {{ .Data "title"}}'
+        title='{{ .Data "title"}}'
+        loading="lazy" class="icon" />
+</a>
+
+
+{{end}}

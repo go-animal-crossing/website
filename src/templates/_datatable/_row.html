@@ -1,22 +1,22 @@
 {{define "datatable_row"}}
-{{ $newN := .Data "is.northern.new" }}
-{{ $newS := .Data "is.southern.new" }}
-{{ $new := "" }}
-{{ $leavingN := .Data "is.northern.leaving" }}
-{{ $leavingS := .Data "is.southern.leaving" }}
-{{ $leaving := "" }}
-{{ $availableN := .Data "is.northern.available" }}
-{{ $availableS := .Data "is.southern.available" }}
-{{ $available := ""}}
-{{ if or $newN $newS }}
-{{ $new = " is-new" }}
-{{end}}
-{{ if or $leavingN $leavingS }}
-{{ $leaving = " is-available"}}
-{{end}}
-{{ if or $availableN $availableS}}
-{{ $available = " is-available" }}
-{{end}}
+{{- $newN := .Data "is.northern.new"  -}}
+{{- $newS := .Data "is.southern.new"  -}}
+{{- $new := ""  -}}
+{{- $leavingN := .Data "is.northern.leaving"  -}}
+{{- $leavingS := .Data "is.southern.leaving"  -}}
+{{- $leaving := ""  -}}
+{{- $availableN := .Data "is.northern.available"  -}}
+{{- $availableS := .Data "is.southern.available"  -}}
+{{- $available := "" -}}
+{{- if or $newN $newS  -}}
+{{- $new = " is-new"  -}}
+{{- end -}}
+{{- if or $leavingN $leavingS  -}}
+{{- $leaving = " is-available" -}}
+{{- end -}}
+{{- if or $availableN $availableS -}}
+{{- $available = " is-available"  -}}
+{{- end -}}
 <tr data-id='{{ .Data "id" }}' class="{{ $new }}{{ $leaving }}{{ $available }}">
     
     <td>

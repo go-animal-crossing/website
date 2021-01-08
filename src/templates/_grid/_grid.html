@@ -1,9 +1,15 @@
 {{define "grid_grid"}}
 
+{{ $items := .Sub "items" }}
+{{ $o := . }}
 
 
 <section class='grid available-grid show-all-types'>
-
+    {{- range $i, $e := .Data "items" }}
+        {{ $key := sprintf "items.%d" $i }}
+        {{ $item := $o.Sub $key }}
+        {{- template "grid_item" $item -}}
+    {{end -}}
 </section>
 
 {{end}}
