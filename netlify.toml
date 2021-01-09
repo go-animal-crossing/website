@@ -1,0 +1,11 @@
+[build]
+    base = ""
+    publish = "dist"
+    command = "make"
+
+[build.processing]
+    skip_processing = false
+
+[build.processing.css]
+    bundle = true
+    minify = true
