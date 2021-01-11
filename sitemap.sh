@@ -13,7 +13,7 @@ echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
 DATE="$(date +'%Y-%m-%d')"
 # print urls
 for f in $(find ./_site/ -type f -name '*.html'); do
-  FILE=${f:11}
+  FILE=${f:9}
   echo "<url>"
   echo " <loc>${URL}${FILE//index.html/}</loc>"
   echo " <lastmod>$DATE</lastmod>"
