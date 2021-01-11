@@ -1,11 +1,4 @@
 [build]
-    base = ""
-    publish = "dist"
+    base = "./"
+    publish = "_site"
     command = "make"
-
-[build.processing]
-    skip_processing = false
-
-[build.processing.css]
-    bundle = true
-    minify = true
