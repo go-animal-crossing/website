@@ -13,6 +13,7 @@ all:
 	@${MAKE} convertor-run
 	@${MAKE} generate
 	@${MAKE} imagecompression-download
+	@${MAKE} imagecompression
 	@${MAKE} copysrc
 
 .PHONY: windmill-download
