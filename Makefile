@@ -47,7 +47,7 @@ imagecompression-download:
 
 .PHONY: imagecompression
 imagecompression:
-	./tinifier compress -k $(TINYPNG_KEY) -e png -r ./src/images
+	./tinifier compress -k "$(TINYPNG_KEY)" -e png -r ./src/images
 
 .PHONY: copysrc
 copysrc:
