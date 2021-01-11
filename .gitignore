@@ -1,4 +1,6 @@
 windmill
 acnh
+tinifier
 src/data*
-dist*
+src/images*
+_site*
