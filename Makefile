@@ -1,9 +1,10 @@
 OS = $(shell uname -s)
 ARCH = $(shell uname -m)
-WINDMILLVERSION = v0.3.0
+WINDMILLVERSION = v0.6.0
 WINDMILL = "https://github.com/go-windmill/windmill/releases/download/$(WINDMILLVERSION)/windmill_$(OS)_$(ARCH).tar.gz"
-CONVERTORVERSION = v0.2.0
+CONVERTORVERSION = v0.5.0
 CONVERTOR = "https://github.com/go-animal-crossing/api-conversion/releases/download/$(CONVERTORVERSION)/api-conversion_$(OS)_$(ARCH).tar.gz"
+COMPRESSOR = "https://github.com/tarampampam/tinifier/releases/download/v3.0.1/tinifier-darwin-amd64"
 
 .PHONY: all
 all:
@@ -11,7 +12,8 @@ all:
 	@${MAKE} convertor-download
 	@${MAKE} convertor-run
 	@${MAKE} generate
-
+	@${MAKE} imagecompression-download
+	@${MAKE} copysrc
 
 .PHONY: windmill-download
 windmill-download:
@@ -34,4 +36,30 @@ convertor-run:
 
 .PHONY: generate
 generate:
-	./windmill build --data-directory="./src/data" --template-directory="./src/templates" --output-directory="./dist"
+	rm -Rf ./_site/* || true
+	./windmill build --data-directory="./src/data" --template-directory="./src/templates" --output-directory="./_site" -v -workers 5
+
+.PHONY: imagecompression-download
+imagecompression-download:
+	rm -f ./tinifier
+	curl $(COMPRESSOR) -L  --silent --output "tinifier"
+	chmod 0777 ./tinifier
+
+.PHONY: imagecompression
+imagecompression:
+	./tinifier compress -k $(TINYPNG_KEY) -e png -r ./src/images
+
+.PHONY: copysrc
+copysrc:
+	rm -Rf ./_site/assets || true
+	cp -r ./src/assets ./_site/
+	rm -Rf ./_site/assets/built
+	rm -Rf ./_site/images
+	cp -r ./src/images ./_site/
+	rm -Rf ./_site/assets/js/* || true
+	mkdir -p ./_site/assets/js || true
+	cp ./src/assets/built/js/app-min.js ./_site/assets/js/
+	rm -Rf ./_site/assets/css/* || true
+	mkdir -p ./_site/assets/css || true
+	cp ./src/assets/built/css/style.css ./_site/assets/css/
+
