@@ -74,10 +74,12 @@
     data-type='{{$slug}}'
     data-id='{{ .Data "id" }}'
     >
+    {{ template "critter_is" . }}
     <img src='{{ .Data "images.thumb"}}' 
         alt='Image of {{ .Data "title"}}'
         title='{{ .Data "title"}}'
         loading="lazy" class="icon" />
+    <strong>{{ .Data "title"}}</strong>
 </a>
 
 

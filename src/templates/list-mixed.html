@@ -6,7 +6,7 @@
         
     </head>
     
-    <body class='type-{{ .Data "type.slug" }}'>     
+    <body class='type-{{ .Data "meta.is" }}'>     
     {{- template "structure_header" -}} 
 
     {{- template "content_listing_mixed" . -}} 
