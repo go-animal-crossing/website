@@ -2,7 +2,7 @@ OS = $(shell uname -s)
 ARCH = $(shell uname -m)
 WINDMILLVERSION = v0.6.0
 WINDMILL = "https://github.com/go-windmill/windmill/releases/download/$(WINDMILLVERSION)/windmill_$(OS)_$(ARCH).tar.gz"
-CONVERTORVERSION = v0.5.0
+CONVERTORVERSION = v0.6.0
 CONVERTOR = "https://github.com/go-animal-crossing/api-conversion/releases/download/$(CONVERTORVERSION)/api-conversion_$(OS)_$(ARCH).tar.gz"
 COMPRESSOR = "https://github.com/tarampampam/tinifier/releases/download/v3.0.1/tinifier-darwin-amd64"
 
