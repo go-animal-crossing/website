@@ -3,9 +3,9 @@
     {
         "@context": "https://schema.org/",
         "@type": "Product",
-        "name": "{{ .Data "title" }}",
+        "name": "{{ .Data "title_safe" }}",
         "image": "{{ .Data "images.main" }}",
-        "description": "{{ .Data "phrases.museum" }}",
+        "description": "{{ .Data "phrases.museum_safe" }}",
         "sku": "ACNH-{{ .Data "type.slug" }}-{{ .Data "id" }}",
         "mpn": "ACNH-{{ .Data "type.slug" }}-{{ .Data "id" }}",
         "brand": {
