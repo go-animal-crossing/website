@@ -3,6 +3,12 @@
 {{ $months := .Data "meta.links.months" }}
 {{ $type := .Data "meta.type" }}
 
+{{ $prefix := "" }}
+{{ if $type }}
+{{ $prefix = "/"}}
+{{ end }}
+
+
 <section class='monthly-data' id="month">
     <div class='block'>
         <h3>What's new</h3>
@@ -10,7 +16,7 @@
         <section class='grid page-nav monthly'>
             <nav class='grid grid__item monthly-navigation'>        
                 {{ range $month := $months }}
-                    <a href='/{{ $type }}/new/{{ $month.month_long }}/' class='grid__item month' title="New {{ $type}} for {{ $month.month_long }}">{{ $month.month_short }}</a>
+                    <a href='{{$prefix}}{{ $type }}/new/{{ $month.month_long }}/' class='grid__item month' title="New {{ $type}} for {{ $month.month_long }}">{{ $month.month_short }}</a>
                 {{ end }}
             </nav>
         </section>
@@ -22,7 +28,7 @@
         <section class='grid page-nav monthly'>
             <nav class='grid grid__item monthly-navigation'>        
                 {{ range $month := $months }}
-                    <a href='/{{ $type }}/leaving/{{ $month.month_long }}/' class='grid__item month' title="Leaving {{ $type}} for {{ $month.month_long }}">{{ $month.month_short }}</a>
+                    <a href='{{$prefix}}{{ $type }}/leaving/{{ $month.month_long }}/' class='grid__item month' title="Leaving {{ $type}} for {{ $month.month_long }}">{{ $month.month_short }}</a>
                 {{ end }}
             </nav>
         </section>
@@ -34,7 +40,7 @@
         <section class='grid page-nav monthly'>
             <nav class='grid grid__item monthly-navigation'>        
                 {{ range $month := $months }}
-                    <a href='/{{ $type }}/available/{{ $month.month_long }}/' class='grid__item month' title="Available {{ $type}} for {{ $month.month_long }}">{{ $month.month_short }}</a>
+                    <a href='{{$prefix}}{{ $type }}/available/{{ $month.month_long }}/' class='grid__item month' title="Available {{ $type}} for {{ $month.month_long }}">{{ $month.month_short }}</a>
                 {{ end }}
             </nav>
         </section>

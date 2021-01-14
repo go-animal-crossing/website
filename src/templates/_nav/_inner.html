@@ -1,26 +1,29 @@
 {{define "nav_inner"}}
 
-{{ $prefix := .Data "type.slug" }}
-
+{{ $prefix := "" }}
+{{ $ts := .Data "type.slug"}}
+{{ if $ts }}
+{{ $prefix = "/"}}
+{{ end }}
 
 <section class='grid page-nav'>
     <h3 class='grid__item'>Try these pages:</h3>
     <nav class='grid grid__item navigation-inner rounded'>
         <span class='grid__item'>
-            <a href='/{{ $prefix }}/new/' class='section first' title='New {{ .Data "type.title" }}'>New</a>
-            <a href='/{{ $prefix }}/new/northern/' class='hemisphere hemisphere-n' title="Northern Hemisphere">N</a>
-            <a href='/{{ $prefix }}/new/southern/' class='hemisphere hemisphere-s' title="Southern Hemisphere">S</a>
+            <a href='{{ $prefix }}{{ $ts }}/new/' class='section first' title='New {{ .Data "type.title" }}'>New</a>
+            <a href='{{ $prefix }}{{ $ts }}/new/northern/' class='hemisphere hemisphere-n' title="Northern Hemisphere">N</a>
+            <a href='{{ $prefix }}{{ $ts }}/new/southern/' class='hemisphere hemisphere-s' title="Southern Hemisphere">S</a>
             
         </span>
         <span class='grid__item'>
-            <a href='/{{ $prefix }}/leaving/' class='section' title='Leaving {{ .Data "type.title" }}'>Leaving</a>
-            <a href='/{{ $prefix }}/leaving/northern/' class='hemisphere hemisphere-n' title="Northern Hemisphere">N</a> 
-            <a href='/{{ $prefix }}/leaving/southern/' class='hemisphere hemisphere-s' title="Southern Hemisphere">S</a>
+            <a href='{{ $prefix }}{{ $ts }}/leaving/' class='section' title='Leaving {{ .Data "type.title" }}'>Leaving</a>
+            <a href='{{ $prefix }}{{ $ts }}/leaving/northern/' class='hemisphere hemisphere-n' title="Northern Hemisphere">N</a> 
+            <a href='{{ $prefix }}{{ $ts }}/leaving/southern/' class='hemisphere hemisphere-s' title="Southern Hemisphere">S</a>
         </span>
         <span class='grid__item'>
-            <a href='/{{ $prefix }}/available/' class='section' title='Available {{ .Data "type.title" }}'>Available</a>
-            <a href='/{{ $prefix }}/available/northern/' class='hemisphere hemisphere-n' title="Northern Hemisphere">N</a>
-            <a href='/{{ $prefix }}/available/southern/' class='hemisphere hemisphere-s' title="Southern Hemisphere">S</a>
+            <a href='{{ $prefix }}{{ $ts }}/available/' class='section' title='Available {{ .Data "type.title" }}'>Available</a>
+            <a href='{{ $prefix }}{{ $ts }}/available/northern/' class='hemisphere hemisphere-n' title="Northern Hemisphere">N</a>
+            <a href='{{ $prefix }}{{ $ts }}/available/southern/' class='hemisphere hemisphere-s' title="Southern Hemisphere">S</a>
         </span>
     </nav>
 </section>
