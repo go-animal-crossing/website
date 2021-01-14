@@ -15,7 +15,7 @@
 
         <table class='data data-table rounded sortable'>
             <thead>
-                {{- template "datatable_header" -}}
+                {{- template "datatable_header" . -}}
             </thead>
             <tbody>
                 {{range $i, $e := .Data "items" }}
