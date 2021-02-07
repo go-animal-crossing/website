@@ -13,9 +13,9 @@ all:
 	@${MAKE} convertor-run
 	@${MAKE} generate
 	@${MAKE} imagecompression-download
-	@${MAKE} imagecompression
 	@${MAKE} sitemap
 	@${MAKE} copysrc
+	@${MAKE} imagecompression
 
 .PHONY: windmill-download
 windmill-download:
@@ -49,7 +49,7 @@ imagecompression-download:
 
 .PHONY: imagecompression
 imagecompression:
-	./tinifier compress -k "$(TINYPNG_KEY)" -e png -r ./src/images 2>/dev/null || true
+	./tinifier compress -k "$(TINYPNG_KEY)" -e png -r ./_site/images || true
 
 
 .PHONY: copysrc
